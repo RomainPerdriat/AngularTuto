@@ -1,9 +1,7 @@
 <h3> Voici la liste de toutes les technos existantes</h3>
-
-  {{allTechnos | json}}
 <!-- Ici j'utilise un pipe qui permet de jsonifier -->
 <div *ngFor="let techno of allTechnos">
-    <h4>{{techno.technoname}}</h4>
-    <p>{{techno.category}}</p>
-    <p>{{techno.textarea}}</p>
+  <app-techno-details [tech]="techno" (deleteTech) ="deleteTechno($event)"></app-techno-details>
+  <!-- Ici le tech correspond au prop de react, en Angular on appel ça un Input au lieu d'une props -->
+
 </div>

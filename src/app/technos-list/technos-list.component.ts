@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Technology } from '../models/technology';
 import { TechnoService } from '../services/techno.service';
 
 @Component({
@@ -18,6 +19,11 @@ export class TechnosListComponent implements OnInit {
   }
 
   getTechnos () {
+    this.allTechnos = this.ts.getTechnos();
+  }
+  deleteTechno (techno: Technology) {
+    console.log('delete Techno', techno);
+    this.ts.deleteTechnos(techno);
     this.allTechnos = this.ts.getTechnos();
   }
 }

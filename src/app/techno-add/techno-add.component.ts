@@ -12,4 +12,7 @@ export class TechnoAddComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addTechno(form) {
+    console.log(form.value)
+  }
 }

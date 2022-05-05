@@ -1,1 +1,20 @@
 <h2> Voici la page listant les technos</h2>
+<form #f="ngForm" (submit)="addTechno(f)">
+<!-- ici le #f permet de créer une variable de template. Le # n'est mis que pour déclarer la variable Le ngForm est crée par Angular est associé à f, il  va nous faciliter la gestion des el du form. Ensuite, on voudra écouter l'événement submit, pour se faire il suffir de mettre les () et de lui passer le contenu de la variable f.  -->
+  <label for = "technoname">Nom de la techno</label><br>
+  <input type = "text" id = "technoname" ngModel name="technoname"><br>
+  <label for = "category">Catégorie</label>
+  <select  id="category" ngModel name ="category">
+    <option value="">---</option>
+    <option value="front">Front</option>
+    <option value="back">Back</option>
+    <option value="fullStack">FullStack</option>
+  </select>
+  <br>
+  <label for = "details">Détails</label><br>
+  <textarea id ="details" cols = "30" rows="10" ngModel name ="textarea"></textarea><br>
+  <button type ="submit">ajouter</button>
+</form>
+
+<!-- Au moment du submit, j'appel la méthode addtechnos créée dans technos-add.components.ts
+Le form est passé à cette méthode grâce à la variable nomée f qu'on associe à ngForm. La prop value permet de récupérer chaque valeur grâce à ng-model et au nom-->

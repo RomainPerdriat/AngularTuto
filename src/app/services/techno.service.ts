@@ -11,9 +11,11 @@ export class TechnoService {
   constructor() { }
  //Ensuite je crée la méthode qui va venir ajouter dans ce tableau vide ma nouvelle techno.
   createTechno(techno) {
-    this.technos = [techno, ...this.technos];
+    const newTechno = {id : Date.now(), ...techno};
+    this.technos = [newTechno, ...this.technos];
     console.log (`tableau après ajout de ma tech`, this.technos)
   }
   // Pour ce faire, je n'oublie pas d'utiliser le this, je récupère avec le spread operator tout ce qu'il y avait avant dans le tableau et ensuite, je place devant ma nouvelle techno.
+
 
 }

@@ -2,6 +2,6 @@
 <!-- Ici j'utilise un pipe qui permet de jsonifier -->
 <div *ngFor="let techno of allTechnos">
   <app-techno-details [tech]="techno" (deleteTech) ="deleteTechno($event)"></app-techno-details>
-  <!-- Ici le tech correspond au prop de react, en Angular on appel ça un Input au lieu d'une props -->
+  <!-- Ici le tech correspond au prop de react, en Angular on appel ça un Input au lieu d'une props, $event sybolise la techno à supprimer -->
 
 </div>

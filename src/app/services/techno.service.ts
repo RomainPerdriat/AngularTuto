@@ -17,5 +17,9 @@ export class TechnoService {
   }
   // Pour ce faire, je n'oublie pas d'utiliser le this, je récupère avec le spread operator tout ce qu'il y avait avant dans le tableau et ensuite, je place devant ma nouvelle techno.
 
+  // Je crée une nouvelle méthode qui va me permettre de récupérer toutes les technos existantes.
+  getTechnos () {
+    return this.technos;
+  }
 
 }

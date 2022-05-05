@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { TechnoAddComponent } from './techno-add/techno-add.component';
+import { TechnosListComponent } from './technos-list/technos-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    TechnoAddComponent
+    TechnoAddComponent,
+    TechnosListComponent
   ],
   imports: [
     BrowserModule,

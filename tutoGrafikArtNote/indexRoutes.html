@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+</head>
+<body ng-app=" MonApp">
+<!-- Ici grâce à ng-model, je récupère la valeur qui sera écrite dans mon input et je la stock dans ma variable query-->
+    <input type="text" ng-model="query" placeholder="Recherche"/>
+    <select ng-model = "order">
+        <option value ="username">Organiser par nom</option>
+        <option value = "content">Organiser par contenu</option>
+    </select>
+    <div ng-controller = "CommentsController">
+<!-- ng-repeat correspond ici à un foreach -->
+            <div ng-repeat = "comment in comments | filter:query | orderBy : order ">
+                <p>
+                    <strong>{{comment.username}}</strong>
+                    <br>
+                    {{comment.content}}
+                </p>
+            </div>      
+    </div>      
+        
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js">
+    </script>
+    <script>
+        var app = angular.module('MonApp',['ngRoute']);
+//  Ici le ngRoute (qui est une injection de dépendance) va me permettre d'utiliser routeProvider 
+        app.config(function($routeProvider){
+            $routeProvider
+                .when('/',{templateUrl: 'partials.home.html'}) // quand route accueil alors fait ça
+                .when ('/comments', {templateUrl: 'partials.comments.html'}) //quand route comments alors fait ça
+                .otherwise({redirectTo: '/'}); //otherwise permet de dire pour toute les autres routes redirige vers la page d'accueil, c'est l'équivalent du *  .
+
+
+
+        })
+        app.controller('CommentController', function ($scope) {
+            $scope.comments = [
+                {
+                    "username" : "ut1",
+                    "city": "cit1",
+                    "email":"mail1",
+                    "content": "cont1"
+                },
+                {
+                    "username" : "ut2",
+                    "city": "cit2",
+                    "email":"mail2",
+                    "content": "cont2"
+                },
+                {
+                    "username" : "ut3",
+                    "city": "cit3",
+                    "email":"mail3",
+                    "content": "cont3"
+                },
+                {
+                    "username" : "ut4",
+                    "city": "cit4",
+                    "email":"mail4",
+                    "content": "cont4"
+                },
+                {
+                    "username" : "ut5",
+                    "city": "cit5",
+                    "email":"mail5",
+                    "content": "cont5"
+                },             
+            ]
+        }
+        )
+    </script>
+</body>
+</html>

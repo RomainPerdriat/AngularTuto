@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+</head>
+<body ng-app>
+<!-- Ici grâce à ng-model, je récupère la valeur qui sera écrite dans mon input et je la stock dans ma variable query-->
+    <input type="text" ng-model="query" placeholder="Recherche"/>
+    <select ng-model = "order">
+        <option value ="username">Organiser par nom</option>
+        <option value = "content">Organiser par contenu</option>
+    </select>
+<!-- La directive ng-init permet d'injecter une variable à l'initialisation-->
+    <div ng-init = "users=[{username: 'Marc', content : 'Salut les gens'},
+                           {username: 'Jean', content: 'Je suis content'},
+                           {username: 'John', content : 'first'}
+                          ]">
+<!-- ng-repeat correspond ici à un forEach-->
+            <div ng-repeat = "user in users | filter:query | orderBy : order ">
+                <p>
+                    <strong>{{user.username}}</strong>
+                    <br>
+                    {{user.content}}
+                </p>
+            </div>      
+    </div>      
+        
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js">
+    </script>
+</body>
+</html>
